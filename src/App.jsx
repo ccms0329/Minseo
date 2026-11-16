@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { quests, site } from './data/quests.js'
 import { useProgress } from './hooks/useProgress.js'
+import { isTestMode } from './lib/geo.js'
 import Intro from './screens/Intro.jsx'
 import QuestMap from './screens/QuestMap.jsx'
 import QuestDetail from './screens/QuestDetail.jsx'
@@ -11,6 +12,7 @@ import Ending from './screens/Ending.jsx'
 // 화면 흐름: intro → map → detail → location → reward → (map | ending)
 export default function App() {
   const game = useProgress()
+  const [testMode] = useState(isTestMode)
   const [screen, setScreen] = useState(() => ({
     name: game.progress.started ? 'map' : 'intro',
     questId: null,
@@ -58,6 +60,7 @@ export default function App() {
         quest={quest}
         index={index}
         arrived={game.hasArrived(quest.id)}
+        testMode={testMode}
         onArrive={() => game.markArrived(quest.id)}
         onBack={() => go('detail', quest.id)}
         onReward={() => go('reward', quest.id)}
@@ -97,6 +100,9 @@ export default function App() {
             <span>{site.brand}</span>
           </div>
         </header>
+        {testMode && (
+          <div className="test-ribbon">테스트 모드 · GPS 없이 도착을 확인할 수 있어</div>
+        )}
         <div key={`${screen.name}-${screen.questId}`} className="screen">
           {view}
         </div>
