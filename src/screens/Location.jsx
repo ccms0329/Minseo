@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
+import KakaoMap from '../components/KakaoMap.jsx'
 import { pad } from '../components/labels.js'
 import { useGeolocation } from '../hooks/useGeolocation.js'
 import { distanceMeters, formatDistance } from '../lib/geo.js'
 
 // GPS로 목적지 반경 안에 들어왔는지 확인한다.
 // 반경 안이 확인되면 도착으로 기록하고, 선물 해제는 다음 화면에서 직접 누른다.
-// 실제 지도(카카오맵)는 3단계에서 연결한다.
 export default function Location({ quest, index, arrived, testMode, onArrive, onBack, onReward }) {
   const geo = useGeolocation()
   const distance = geo.position ? distanceMeters(geo.position, quest) : null
@@ -49,11 +49,7 @@ export default function Location({ quest, index, arrived, testMode, onArrive, on
         <p className="subcopy">{quest.address}</p>
       </div>
 
-      <div className="map-placeholder">
-        <span className="map-placeholder-pin" aria-hidden="true">📍</span>
-        <strong>실제 지도가 들어갈 자리</strong>
-        <span>현재 위치와 목적지를 보여 주는 카카오맵은 다음 단계에서 연결돼.</span>
-      </div>
+      <KakaoMap quest={quest} position={geo.position} />
 
       <div className={`location-card ${arrived ? 'is-arrived' : ''}`}>
         <span className="destination-overline">GPS CHECK</span>
