@@ -899,17 +899,12 @@ section > .primary-button {
   border-radius: 14px;
 }
 
-/* 선물 사진은 칸을 사진 비율에 맞춰 잘리지 않고 크게 보여 준다 */
-.gift-media.has-image {
-  aspect-ratio: auto;
-}
-
 .gift-media img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-height: 48vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: contain; /* 사진이 잘리지 않게 칸 안에 전체를 보여 준다 */
 }
 
 .gift-emoji {

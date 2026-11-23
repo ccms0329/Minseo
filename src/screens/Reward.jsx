@@ -16,7 +16,7 @@ export default function Reward({ quest, index, unlocked, isLast, onUnlock, onMap
 
       {unlocked ? (
         <div className="gift-card is-open">
-          <div className={`gift-media ${gift.image ? 'has-image' : ''}`}>
+          <div className="gift-media">
             {gift.image ? (
               <img src={gift.image} alt={gift.title} />
             ) : (
