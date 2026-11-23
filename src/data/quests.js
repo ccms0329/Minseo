@@ -52,7 +52,7 @@ export const quests = [
       title: '두 번째 선물',
       description: '여기에 선물 설명을 적어 주세요.',
       emoji: '🍲',
-      image: null,
+      image: 'gifts/2.png',
     },
   },
   {
