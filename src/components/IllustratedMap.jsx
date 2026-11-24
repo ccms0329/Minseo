@@ -1,10 +1,14 @@
 import { pad } from './labels.js'
 
 const W = 390
-const H = 430
+const BASE_H = 430 // 배경 그림을 그린 기준 높이
+const STEP = 66 // 마커 사이 최소 세로 간격(마커 지름 56px보다 넉넉하게)
+
+// 퀘스트가 많으면 마커가 겹치지 않도록 지도를 세로로 늘린다.
+const mapHeight = (count) => Math.max(BASE_H, 120 + STEP * (count - 1))
 
 // 퀘스트 개수에 맞춰 아래에서 위로 구불구불 올라가는 길 위에 마커를 놓는다.
-function layout(count) {
+function layout(count, H) {
   return Array.from({ length: count }, (_, i) => {
     const t = count === 1 ? 0.5 : i / (count - 1)
     return {
@@ -24,7 +28,8 @@ function trail(points) {
 }
 
 export default function IllustratedMap({ quests, statusOf, onOpen }) {
-  const points = layout(quests.length)
+  const H = mapHeight(quests.length)
+  const points = layout(quests.length, H)
   const doneCount = quests.filter((q) => statusOf(q.id) === 'done').length
   const walked = points.slice(0, Math.min(doneCount + 1, points.length))
 
@@ -32,6 +37,7 @@ export default function IllustratedMap({ quests, statusOf, onOpen }) {
     <div className="illustrated-map" style={{ aspectRatio: `${W} / ${H}` }}>
       <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
         <rect width={W} height={H} fill="#dff2fa" />
+        <g transform={`scale(1 ${H / BASE_H})`}>
         <path d="M0 70 Q80 40 150 78 T300 60 T390 84 V0 H0Z" fill="#c9e9f7" />
         <path d="M300 0 C250 90 350 150 300 240 S340 380 290 430 H350 C390 370 350 300 370 240 S320 90 360 0Z" fill="#b5def2" />
         <path d="M0 330 Q70 300 130 340 T250 350 V430 H0Z" fill="#cdeed6" />
@@ -44,6 +50,7 @@ export default function IllustratedMap({ quests, statusOf, onOpen }) {
         </g>
         <g fill="#fff" opacity=".85">
           <ellipse cx="96" cy="36" rx="26" ry="8" /><ellipse cx="250" cy="130" rx="20" ry="6" />
+        </g>
         </g>
         <path d={trail(points)} fill="none" stroke="#fff" strokeWidth="9" strokeLinecap="round" />
         <path d={trail(points)} fill="none" stroke="#8fb9cc" strokeWidth="3" strokeDasharray="2 10" strokeLinecap="round" />

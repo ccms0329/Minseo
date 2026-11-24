@@ -35,7 +35,7 @@ export default function QuestMap({ game, onOpen, onEnding, onReset }) {
             {doneCount === 0
               ? '첫 번째 발자국을 시작해 봐'
               : allDone
-                ? '여섯 개의 발자국을 모두 모았어'
+                ? `${total}개의 발자국을 모두 모았어`
                 : `선물 ${doneCount}개를 찾았어`}
           </span>
           <div
