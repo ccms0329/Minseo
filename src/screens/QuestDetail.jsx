@@ -6,22 +6,24 @@ export default function QuestDetail({ quest, index, status, onBack, onLocation, 
   return (
     <section>
       <button type="button" className="back-link" onClick={onBack}>
-        ← 지도로
+        ◀ 지도로
       </button>
       <div className="screen-head">
-        <div className="eyebrow">Quest {pad(index + 1)}</div>
+        <span className="tag">QUEST {pad(index + 1)}</span>
         <h1 className="screen-heading">{quest.place}</h1>
-        <p className="subcopy">{ordinal(index)} 퀘스트{done ? ' · 완료' : ''}</p>
+        <p className="subcopy">
+          {ordinal(index)} 퀘스트{done ? ' · 클리어!' : ''}
+        </p>
       </div>
 
       <div className="hint-card">
         <span className="hint-badge" aria-hidden="true">?</span>
-        <span className="destination-overline">HINT</span>
+        <span className="overline">HINT</span>
         <p>{quest.hint}</p>
       </div>
 
-      <div className="paper-card">
-        <span className="destination-overline">MISSION</span>
+      <div className="panel">
+        <span className="overline">MISSION</span>
         <p className="body-copy">{quest.description}</p>
         <dl className="fact-list">
           <div>
@@ -40,12 +42,12 @@ export default function QuestDetail({ quest, index, status, onBack, onLocation, 
       </div>
 
       {done ? (
-        <button type="button" className="primary-button" onClick={onReward}>
+        <button type="button" className="primary-button is-gold" onClick={onReward}>
           받은 선물 다시 보기 🎁
         </button>
       ) : (
         <button type="button" className="primary-button" onClick={onLocation}>
-          위치 확인하러 가기 <span aria-hidden="true">→</span>
+          위치 확인하러 가기 <span aria-hidden="true">▶</span>
         </button>
       )}
     </section>

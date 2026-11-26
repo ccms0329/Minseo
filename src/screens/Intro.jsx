@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { site } from '../data/quests.js'
-import HeroArt from '../components/HeroArt.jsx'
+import TreasureScroll from '../components/TreasureScroll.jsx'
 
 export default function Intro({ initialNickname, onStart }) {
   const [nickname, setNickname] = useState(initialNickname)
@@ -8,17 +8,18 @@ export default function Intro({ initialNickname, onStart }) {
   return (
     <section className="intro">
       <div className="eyebrow">{site.eyebrow}</div>
-      <h1 className="hero-title">
-        {site.titleLine1}
+      <h1 className="logo">
+        <span className="logo-gold">{site.titleLine1}</span>
         <br />
-        <em>{site.titleLine2}</em>
+        <span className="logo-gold">{site.titleGold}</span>
+        {site.titleWhite}
       </h1>
       <p className="intro-copy">{site.introCopy}</p>
 
-      <HeroArt />
+      <TreasureScroll />
 
       <form
-        className="paper-card"
+        className="panel"
         onSubmit={(e) => {
           e.preventDefault()
           onStart(nickname)
@@ -37,7 +38,7 @@ export default function Intro({ initialNickname, onStart }) {
           onChange={(e) => setNickname(e.target.value)}
         />
         <button type="submit" className="primary-button">
-          초대장 열기 <span aria-hidden="true">→</span>
+          모험 시작하기 <span aria-hidden="true">▶</span>
         </button>
       </form>
     </section>

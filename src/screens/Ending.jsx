@@ -1,6 +1,6 @@
 import { ending, quests } from '../data/quests.js'
 
-const CONFETTI = ['#3698c3', '#ffd166', '#e8705a', '#8fd0a0', '#a9dcf5']
+const CONFETTI = ['#ffc94a', '#7cc456', '#f0a3a0', '#ffffff', '#7fb6c9', '#cf7f60']
 
 export default function Ending({ nickname, onBack }) {
   return (
@@ -19,22 +19,24 @@ export default function Ending({ nickname, onBack }) {
         ))}
       </div>
 
-      <div className="eyebrow">{ending.eyebrow}</div>
+      <div className="ribbon">{ending.eyebrow}</div>
       <div className="ending-cake" aria-hidden="true">🎂</div>
-      <h1 className="hero-title">
+      <h1 className="logo is-center">
         {nickname ? `${nickname},` : 'HAPPY'}
         <br />
-        <em>{nickname ? ending.title : 'BIRTHDAY!'}</em>
+        <span className="logo-gold">{nickname ? ending.title : 'BIRTHDAY!'}</span>
       </h1>
       <p className="intro-copy">{ending.message}</p>
       {ending.from && <p className="ending-from">— {ending.from}</p>}
 
-      <div className="paper-card">
-        <span className="destination-overline">오늘 모은 선물</span>
+      <div className="panel">
+        <span className="overline">오늘 모은 선물</span>
         <ul className="gift-list">
           {quests.map((q) => (
             <li key={q.id}>
-              <span aria-hidden="true">{q.gift.emoji}</span>
+              <span className="gift-thumb" aria-hidden="true">
+                {q.gift.image ? <img src={q.gift.image} alt="" /> : q.gift.emoji}
+              </span>
               <span>
                 <strong>{q.gift.title}</strong>
                 <small>{q.place}</small>

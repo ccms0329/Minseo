@@ -9,13 +9,12 @@
 export const site = {
   brand: '오타쿠 발자국',
   eyebrow: 'Birthday party',
+  // 첫 화면 제목: 노란 부분(titleGold)과 흰 부분(titleWhite)
   titleLine1: 'YOU',
-  titleLine2: 'B IN vited.',
+  titleGold: 'B IN',
+  titleWhite: 'vited',
   introCopy:
     '티켓에 적힌 장소를 따라가 봐!! 각 장소에 도착해야만 어떤 선물인지 확인할 수 있어.',
-  heroSpeech: ['지도를 따라가면 숨겨진', '선물을 찾을 수 있어!'],
-  // 첫 화면 배너 이미지. public/ 기준 경로를 넣으면 기본 일러스트 대신 보인다.
-  heroImage: null,
 }
 
 export const DEFAULT_RADIUS_M = 30
@@ -24,6 +23,8 @@ export const quests = [
   {
     id: 'q1',
     place: '홍대입구역 4번 출구',
+    short: '홍대입구역', // 지도 이름표
+    landmark: 'station', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 양화로 (홍대입구역 4번 출구)',
     lat: 37.558144,
     lng: 126.925812,
@@ -41,6 +42,8 @@ export const quests = [
   {
     id: 'q2',
     place: '돈수백 홍대 직영점',
+    short: '돈수백', // 지도 이름표
+    landmark: 'soup', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 홍익로6길 74',
     lat: 37.556946,
     lng: 126.925281,
@@ -58,6 +61,8 @@ export const quests = [
   {
     id: 'q3',
     place: 'LC TOWER B3F',
+    short: 'LC TOWER', // 지도 이름표
+    landmark: 'tower', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 양화로 186 LC TOWER B3F',
     lat: 37.557668,
     lng: 126.925893,
@@ -75,6 +80,8 @@ export const quests = [
   {
     id: 'q4',
     place: '히어로보드게임카페',
+    short: '히어로보드게임', // 지도 이름표
+    landmark: 'dice', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 와우산로21길 31-10 2층',
     lat: 37.552096,
     lng: 126.921846,
@@ -92,6 +99,8 @@ export const quests = [
   {
     id: 'q5',
     place: '들풀한상',
+    short: '들풀한상', // 지도 이름표
+    landmark: 'hanok', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 동교로 156-5',
     lat: 37.555509,
     lng: 126.919817,
@@ -109,6 +118,8 @@ export const quests = [
   {
     id: 'q6',
     place: '토커바웃커피 브루어스',
+    short: '토커바웃커피', // 지도 이름표
+    landmark: 'cafe', // 지도 건물 모양: station, soup, tower, dice, hanok, cafe
     address: '서울 마포구 동교로 185 2층',
     lat: 37.55711,
     lng: 126.921858,
@@ -126,7 +137,7 @@ export const quests = [
 ]
 
 export const ending = {
-  eyebrow: 'Quest complete',
+  eyebrow: '퀘스트 클리어!',
   title: '생일 축하해!',
   message:
     '발자국을 하나도 빠짐없이 모았어. 오늘 하루가 오래 기억에 남는 모험이었으면 좋겠어.',

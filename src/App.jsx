@@ -99,6 +99,10 @@ export default function App() {
             <span className="brand-seal" aria-hidden="true">♥</span>
             <span>{site.brand}</span>
           </div>
+          <div className="gift-pill" aria-label={`찾은 선물 ${game.doneCount}개, 전체 ${quests.length}개`}>
+            <b aria-hidden="true">🎁</b>
+            {game.progress.started ? `${game.doneCount} / ${quests.length}` : `×${quests.length}`}
+          </div>
         </header>
         {testMode && (
           <div className="test-ribbon">테스트 모드 · GPS 없이 도착을 확인할 수 있어</div>

@@ -41,18 +41,18 @@ export default function Location({ quest, index, arrived, testMode, onArrive, on
   return (
     <section>
       <button type="button" className="back-link" onClick={onBack}>
-        ← 퀘스트로
+        ◀ 퀘스트로
       </button>
       <div className="screen-head">
-        <div className="eyebrow">Location · {pad(index + 1)}</div>
+        <span className="tag">LOCATION · {pad(index + 1)}</span>
         <h1 className="screen-heading">{quest.place}</h1>
         <p className="subcopy">{quest.address}</p>
       </div>
 
       <KakaoMap quest={quest} position={geo.position} />
 
-      <div className={`location-card ${arrived ? 'is-arrived' : ''}`}>
-        <span className="destination-overline">GPS CHECK</span>
+      <div className={`panel location-card ${arrived ? 'is-arrived' : ''}`}>
+        <span className="overline">GPS CHECK</span>
         <strong className="card-title" aria-live="polite">{title}</strong>
         <p className="status-line">{line}</p>
 
@@ -74,7 +74,7 @@ export default function Location({ quest, index, arrived, testMode, onArrive, on
         )}
 
         {arrived ? (
-          <button type="button" className="primary-button" onClick={onReward}>
+          <button type="button" className="primary-button is-gold" onClick={onReward}>
             선물 확인하러 가기 🎁
           </button>
         ) : geo.status === 'locating' || geo.status === 'tracking' ? (
