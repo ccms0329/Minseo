@@ -2,6 +2,15 @@ import { quests } from '../data/quests.js'
 import IslandMap from '../components/IslandMap.jsx'
 import { pad } from '../components/labels.js'
 
+// 스탬프용 굵은 체크 아이콘
+function CheckIcon() {
+  return (
+    <svg className="stamp-check" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" strokeWidth="4.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 export default function QuestMap({ game, onOpen, onEnding, onReset }) {
   const { progress, statusOf, doneCount, allDone } = game
   const total = quests.length
@@ -83,7 +92,7 @@ export default function QuestMap({ game, onOpen, onEnding, onReset }) {
                 aria-label={`${pad(i + 1)}번 퀘스트`}
                 onClick={() => onOpen(q.id)}
               >
-                {status === 'done' ? '✓' : status === 'current' ? '?' : i + 1}
+                {status === 'done' ? <CheckIcon /> : status === 'current' ? '?' : i + 1}
               </button>
             )
           })}
