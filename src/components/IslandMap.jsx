@@ -72,19 +72,7 @@ function Flag({ x, y }) {
   )
 }
 
-export function QuestPin({ x, y }) {
-  return (
-    <g transform={`translate(${x} ${y})`}>
-      <g className="pin-bounce">
-        <ellipse cx="0" cy="4" rx="9" ry="3" fill="#00000030" />
-        <path d="M0 0 C-14 -16 -16 -24 -16 -32 a16 16 0 0 1 32 0 c0 8 -2 16 -16 32z" fill="#ffc94a" stroke="#fff" strokeWidth="3" />
-        <text x="0" y="-25" textAnchor="middle" fontFamily="Jua" fontSize="20" fill="#4a2f2b">?</text>
-      </g>
-    </g>
-  )
-}
-
-// 떠 있는 섬 지도. 장소마다 건물이 있고, 완료=깃발, 다음 목적지=노란 ? 핀, 잠김=회색 건물.
+// 떠 있는 섬 지도. 장소마다 건물이 있고, 완료=깃발, 다음 목적지=둥둥 뜨는 노란 이름표, 잠김=회색 건물.
 export default function IslandMap({ quests, statusOf, onOpen }) {
   const shown = quests.slice(0, SPOTS.length)
   const route = smoothPath(SPOTS.slice(0, shown.length))
@@ -133,7 +121,6 @@ export default function IslandMap({ quests, statusOf, onOpen }) {
                 <Landmark type={q.landmark} />
               </g>
               {status === 'done' && <Flag x={x + 22} y={y - 2} />}
-              {status === 'current' && <QuestPin x={x - 34} y={y - 70} />}
             </g>
           )
         })}

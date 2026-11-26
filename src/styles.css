@@ -564,7 +564,8 @@ section > .primary-button {
   width: 56px;
 }
 
-.pin-bounce {
+/* 다음 목적지 이름표만 둥둥 떠 있다 */
+.is-current .island-bubble {
   animation: pin-bounce 1.2s ease-in-out infinite;
 }
 
