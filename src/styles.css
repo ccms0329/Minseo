@@ -197,6 +197,11 @@ ul {
   text-shadow: 0 6px 0 var(--lav-dark), 0 9px 0 #3a2156, 0 14px 14px #2a1a4060;
 }
 
+/* 첫 화면 제목은 그림자 없이 외곽선만 */
+.intro .logo {
+  text-shadow: none;
+}
+
 .logo-gold {
   color: var(--gold);
 }
