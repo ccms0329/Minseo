@@ -29,6 +29,21 @@ export default function Ending({ nickname, onBack }) {
       <p className="intro-copy">{ending.message}</p>
       {ending.from && <p className="ending-from">— {ending.from}</p>}
 
+      {ending.videoId && (
+        <div className="panel video-card">
+          <span className="overline">축하 영상 🎬</span>
+          <div className="video-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${ending.videoId}?rel=0&playsinline=1`}
+              title="생일 축하 영상"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+
       <div className="panel">
         <span className="overline">오늘 모은 선물</span>
         <ul className="gift-list">
