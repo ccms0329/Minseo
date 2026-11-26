@@ -31,7 +31,6 @@ export default function Ending({ nickname, onBack }) {
 
       {ending.videoId && (
         <div className="panel video-card">
-          <span className="overline">축하 영상 🎬</span>
           <div className="video-frame">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${ending.videoId}?rel=0&playsinline=1`}
