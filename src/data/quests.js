@@ -18,7 +18,7 @@ export const site = {
   heroImage: null,
 }
 
-export const DEFAULT_RADIUS_M = 100
+export const DEFAULT_RADIUS_M = 30
 
 export const quests = [
   {
@@ -114,47 +114,13 @@ export const quests = [
     lng: 126.921858,
     coordsVerified: true,
     radius: DEFAULT_RADIUS_M,
-    hint: '커피 향을 따라 2층으로 올라가 봐.',
-    description: '잠깐 쉬어 가는 카페야. 카페에 도착하면 여섯 번째 선물이 열려.',
-    gift: {
-      title: '여섯 번째 선물',
-      description: '여기에 선물 설명을 적어 주세요.',
-      emoji: '☕',
-      image: 'gifts/6.png',
-    },
-  },
-  {
-    id: 'q7',
-    place: '별빛마을웰카운티 1002동',
-    address: '인천 남동구 논현로 235 1002동',
-    lat: 37.406257,
-    lng: 126.730733,
-    coordsVerified: true,
-    radius: 50,
-    hint: '서울을 벗어나 인천으로! 별빛이 내리는 마을의 1002동을 찾아가.',
-    description: '이번엔 범위가 좁아. 1002동 바로 앞까지 가야 일곱 번째 선물이 열려.',
-    gift: {
-      title: '일곱 번째 선물',
-      description: '여기에 선물 설명을 적어 주세요.',
-      emoji: '🌟',
-      image: null,
-    },
-  },
-  {
-    id: 'q8',
-    place: '아시아선수촌아파트 10동',
-    address: '서울 송파구 올림픽로4길 15 아시아선수촌아파트 10동',
-    lat: 37.506627,
-    lng: 127.076065,
-    coordsVerified: true,
-    radius: 30,
-    hint: '마지막 발자국은 잠실로! 선수들이 묵던 마을의 10동을 찾아가 봐.',
-    description: '여정의 마지막 장소야. 범위가 아주 좁으니 10동 바로 앞까지 가야 마지막 선물이 열려.',
+    hint: '마지막 발자국은 커피 향을 따라 2층으로.',
+    description: '여정의 마지막 장소야. 카페에 도착하면 마지막 선물이 열려.',
     gift: {
       title: '마지막 선물',
       description: '여기에 선물 설명을 적어 주세요.',
-      emoji: '🎉',
-      image: null,
+      emoji: '☕',
+      image: 'gifts/6.png',
     },
   },
 ]
